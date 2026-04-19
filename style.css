@@ -316,33 +316,57 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 .hero-cta-group {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  max-width: 480px;
+}
+
+.hero-cta-label {
+  grid-column: 1 / -1;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: -2px;
 }
 
 .hero-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 14px 26px;
-  border-radius: var(--radius-full);
-  font-size: 15px;
+  justify-content: center;
+  gap: 7px;
+  padding: 12px 18px;
+  border-radius: var(--radius-md);
+  font-size: 13px;
   font-weight: 600;
   letter-spacing: -0.01em;
   transition: var(--transition-base);
 }
 
 .hero-btn--primary {
-  background: var(--blue);
+  background: var(--text-primary);
   color: white;
-  box-shadow: 0 4px 20px rgba(0,113,227,0.3);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.18);
 }
 
 .hero-btn--primary:hover {
-  background: var(--blue-light);
+  background: #2d2d2f;
   transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(0,113,227,0.4);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.22);
+}
+
+.hero-btn--android {
+  background: #01875f;
+  color: white;
+  box-shadow: 0 2px 12px rgba(1,135,95,0.25);
+}
+
+.hero-btn--android:hover {
+  background: #019e70;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(1,135,95,0.3);
 }
 
 .hero-btn--ghost {
