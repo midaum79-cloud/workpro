@@ -1,9 +1,6 @@
 services:
   - type: web
     name: workpro-site
-    runtime: static
+    env: static
     buildCommand: npm run build
     staticPublishPath: ./dist
-    customDomains:
-      - name: workpro.kr
-      - name: www.workpro.kr
