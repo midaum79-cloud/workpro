@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>일하는 사람들 — 일머리 & 일잘러 | 현장 관리의 새로운 기준</title>
+  <meta name="description" content="인테리어·건축 현장 관리를 혁신하는 두 가지 앱. 일머리(Workhead)와 일잘러(Workgood)로 현장 일정, 업체, 수입을 한번에 관리하세요.">
+  <meta name="keywords" content="인테리어 관리, 현장관리 앱, 공정 관리, 일정 관리, 시공 관리, workhead, workgood, 일머리, 일잘러">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="일하는 사람들 — 일머리 & 일잘러">
+  <meta property="og:description" content="현장 관리의 새로운 기준. 인테리어·건축 현장을 스마트하게.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://workinsight.co.kr">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <!-- ============ NAVIGATION ============ -->
+  <nav id="navbar" class="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">
+        <img src="/assets/images/logo_working_people.png" alt="일하는 사람들" class="nav-logo-img">
+        <span class="nav-logo-text">일하는 사람들</span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="#workhead" class="nav-link">일머리</a>
+        <a href="#workgood" class="nav-link">일잘러</a>
+        <a href="#features" class="nav-link">주요 기능</a>
+        <a href="#pricing" class="nav-link">요금제</a>
+        <a href="#howto" class="nav-link">사용법</a>
+        <a href="#sns" class="nav-link">SNS</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="메뉴 열기">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ============ HERO SECTION ============ -->
+  <section id="hero" class="hero">
+    <div class="hero-bg-effects">
+      <div class="hero-orb hero-orb-1"></div>
+      <div class="hero-orb hero-orb-2"></div>
+      <div class="hero-orb hero-orb-3"></div>
+      <div class="hero-grid"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge" data-animate>
+        <span class="hero-badge-dot"></span>
+        <img src="/assets/images/logo_working_people.png" alt="" class="hero-badge-logo">
+        현장 관리의 새로운 기준
+      </div>
+      <h1 class="hero-title" data-animate>
+        일의 <span class="gradient-text">시작</span>부터<br>
+        <span class="gradient-text">완성</span>까지.
+      </h1>
+      <p class="hero-description" data-animate>
+        인테리어·건축 현장을 가장 스마트하게 관리하는 방법.<br>
+        <strong>일머리</strong>와 <strong>일잘러</strong>, 두 가지 앱으로 현장의 모든 것을 한 손에.
+      </p>
+      <div class="hero-apps" data-animate>
+        <a href="#workhead" class="hero-app-card">
+          <img src="/assets/images/logo-workhead.png" alt="일머리 로고" class="hero-app-logo">
+          <div class="hero-app-info">
+            <div class="hero-app-name">일머리</div>
+            <div class="hero-app-tag">Workhead</div>
+          </div>
+          <div class="hero-app-arrow">→</div>
+        </a>
+        <a href="#workgood" class="hero-app-card">
+          <img src="/assets/images/logo-workgood.png" alt="일잘러 로고" class="hero-app-logo">
+          <div class="hero-app-info">
+            <div class="hero-app-name">일잘러</div>
+            <div class="hero-app-tag">Workgood</div>
+          </div>
+          <div class="hero-app-arrow">→</div>
+        </a>
+      </div>
+      <div class="hero-stats" data-animate>
+        <div class="hero-stat">
+          <div class="hero-stat-number" data-count="2">2</div>
+          <div class="hero-stat-label">개의 앱</div>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <div class="hero-stat-number">출시 완료</div>
+          <div class="hero-stat-label">App Store</div>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <div class="hero-stat-number">₩0</div>
+          <div class="hero-stat-label">무료 시작</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll-indicator">
+      <div class="scroll-mouse">
+        <div class="scroll-wheel"></div>
+      </div>
+      <span>아래로 스크롤</span>
+    </div>
+  </section>
+
+  <!-- ============ WORKHEAD SECTION ============ -->
+  <section id="workhead" class="app-section app-section--workhead">
+    <div class="container">
+      <div class="app-header" data-animate>
+        <div class="app-badge app-badge--blue">APP 01</div>
+        <div class="app-logo-row">
+          <img src="/assets/images/logo-workhead.png" alt="일머리" class="app-logo-img">
+        </div>
+        <h2 class="app-title">
+          현장의 <span class="text-blue">머리</span>가 되다
+        </h2>
+        <p class="app-subtitle">
+          인테리어·건축 현장의 일정, 업체, 공정을 한 번에 관리하세요.<br>
+          복잡한 현장도 <strong>일머리</strong> 하나면 깔끔하게.
+        </p>
+      </div>
+
+      <div class="features-grid" data-animate>
+        <div class="feature-card feature-card--highlight">
+          <div class="feature-icon">📅</div>
+          <h3 class="feature-title">캘린더 일정관리</h3>
+          <p class="feature-desc">드래그로 공정 기간 조절, 터치로 날짜 이동. 모든 현장 일정을 한 눈에 확인하세요.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🏗️</div>
+          <h3 class="feature-title">현장관리</h3>
+          <p class="feature-desc">주거/상업 공간 유형별 현장 등록. 진행률 그래프로 공사 현황을 실시간 파악.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🏢</div>
+          <h3 class="feature-title">업체관리</h3>
+          <p class="feature-desc">협력업체 연락처, 일정, 계약까지 한 곳에서 관리. 업체와의 소통을 간편하게.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📝</div>
+          <h3 class="feature-title">일일 다이어리</h3>
+          <p class="feature-desc">그날의 현장을 기록하고 추억으로 남기세요. 프리미엄 전용 캘린더 다이어리.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🧮</div>
+          <h3 class="feature-title">일용근로 계산기</h3>
+          <p class="feature-desc">일용직 근로자의 일당, 세금을 자동으로 계산. 급여 관리가 쉬워집니다.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🤖</div>
+          <h3 class="feature-title">AI 일정표 캡처</h3>
+          <p class="feature-desc">칠판이나 엑셀의 일정표 사진을 올리면, AI가 자동으로 공정과 날짜를 추출합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WORKGOOD SECTION ============ -->
+  <section id="workgood" class="app-section app-section--workgood">
+    <div class="container">
+      <div class="app-header" data-animate>
+        <div class="app-badge app-badge--green">APP 02</div>
+        <div class="app-logo-row">
+          <img src="/assets/images/logo-workgood.png" alt="일잘러" class="app-logo-img">
+        </div>
+        <h2 class="app-title">
+          일 <span class="text-green">잘</span>하는 사람의 비결
+        </h2>
+        <p class="app-subtitle">
+          현장 관리부터 수입 관리, 세금까지 한 번에.<br>
+          <strong>일잘러</strong>가 당신의 비즈니스 파트너가 됩니다.
+        </p>
+      </div>
+
+      <div class="features-grid" data-animate>
+        <div class="feature-card feature-card--highlight-green">
+          <div class="feature-icon">💰</div>
+          <h3 class="feature-title">수입 통계 관리</h3>
+          <p class="feature-desc">월별 수입, 거래처별 매출을 자동 분석. "이번 달 얼마 벌었지?" 한눈에 확인하세요.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3 class="feature-title">미수금 관리</h3>
+          <p class="feature-desc">미수금 현황을 대시보드로 관리하고, 입금 요청 알림까지 자동으로.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🧾</div>
+          <h3 class="feature-title">세금 자동 계산</h3>
+          <p class="feature-desc">3.3% 세금 자동 계산과 종합소득세 대비 엑셀 리포트 다운로드.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📱</div>
+          <h3 class="feature-title">홈 위젯</h3>
+          <p class="feature-desc">앱을 열지 않아도 홈 화면/잠금 화면에서 전체 캘린더를 바로 확인.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📋</div>
+          <h3 class="feature-title">현장 무제한 등록</h3>
+          <p class="feature-desc">현장 등록에 제한 없이 무제한으로 프로젝트를 관리하세요.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📨</div>
+          <h3 class="feature-title">자동 문자 발송</h3>
+          <p class="feature-desc">업체에게 전날 예약 확인 문자를 자동으로 전송. 놓치는 일정이 없습니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COMMON FEATURES ============ -->
+  <section id="features" class="common-features">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <div class="section-badge">CORE FEATURES</div>
+        <h2 class="section-title">두 앱의 <span class="gradient-text">공통 강점</span></h2>
+        <p class="section-subtitle">일머리와 일잘러, 모두에서 누릴 수 있는 핵심 기능</p>
+      </div>
+
+      <div class="common-grid" data-animate>
+        <div class="common-card">
+          <div class="common-icon-wrapper">
+            <div class="common-icon">📱</div>
+          </div>
+          <h3>모바일 최적화</h3>
+          <p>현장에서 한 손으로 조작 가능한 직관적 모바일 UI</p>
+        </div>
+        <div class="common-card">
+          <div class="common-icon-wrapper">
+            <div class="common-icon">⚡</div>
+          </div>
+          <h3>10초 현장 등록</h3>
+          <p>공간 유형 선택 → 공정 체크 → 끝! 초간단 등록</p>
+        </div>
+        <div class="common-card">
+          <div class="common-icon-wrapper">
+            <div class="common-icon">🔄</div>
+          </div>
+          <h3>실시간 동기화</h3>
+          <p>어디서든 접속, 모든 기기에서 데이터 동기화</p>
+        </div>
+        <div class="common-card">
+          <div class="common-icon-wrapper">
+            <div class="common-icon">🔒</div>
+          </div>
+          <h3>안전한 보안</h3>
+          <p>Google/Apple 로그인 지원, 데이터 암호화 보호</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW TO USE ============ -->
+  <section id="howto" class="howto-section">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <div class="section-badge">HOW TO USE</div>
+        <h2 class="section-title">이렇게 <span class="gradient-text">사용</span>하세요</h2>
+        <p class="section-subtitle">일머리와 일잘러, 각각의 앱에 맞춰 스마트하게 활용해보세요</p>
+        
+        <!-- Tab Toggle -->
+        <div class="howto-tabs">
+          <button class="howto-tab-btn active" data-tab="tab-workhead">일머리 사용법</button>
+          <button class="howto-tab-btn" data-tab="tab-workgood">일잘러 사용법</button>
+        </div>
+      </div>
+
+      <div class="steps-container tab-content active" id="tab-workhead" data-animate>
+        <div class="step-card">
+          <div class="step-number">01</div>
+          <div class="step-content">
+            <h3>현장을 등록하세요</h3>
+            <p>하단의 <strong>[+]</strong> 버튼을 눌러 공간 유형(주거/상업)을 선택하고, 필요한 공정을 체크하세요. AI 일정표 캡처로 사진 한 장이면 자동 세팅!</p>
+          </div>
+          <div class="step-visual">
+            <div class="step-mockup">
+              <div class="mockup-header"></div>
+              <div class="mockup-content">
+                <div class="mockup-btn"></div>
+                <div class="mockup-list">
+                  <div class="mockup-item"></div>
+                  <div class="mockup-item"></div>
+                  <div class="mockup-item active"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-connector">
+          <div class="connector-line"></div>
+          <div class="connector-dot"></div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">02</div>
+          <div class="step-content">
+            <h3>캘린더로 한 눈에</h3>
+            <p>캘린더 탭에서 모든 현장 일정을 확인하세요. 컬러 바를 <strong>드래그</strong>해서 기간을 조절하고, <strong>길게 눌러</strong> 다른 날짜로 이동하세요.</p>
+          </div>
+          <div class="step-visual">
+            <div class="step-mockup">
+              <div class="mockup-header"></div>
+              <div class="mockup-content">
+                <div class="mockup-calendar">
+                  <div class="mockup-cal-row">
+                    <div class="mockup-cal-cell"></div>
+                    <div class="mockup-cal-cell"></div>
+                    <div class="mockup-cal-cell"></div>
+                    <div class="mockup-cal-cell"></div>
+                    <div class="mockup-cal-cell"></div>
+                  </div>
+                  <div class="mockup-cal-bar bar-blue"></div>
+                  <div class="mockup-cal-bar bar-orange"></div>
+                  <div class="mockup-cal-bar bar-green"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-connector">
+          <div class="connector-line"></div>
+          <div class="connector-dot"></div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">03</div>
+          <div class="step-content">
+            <h3>진행률을 체크하세요</h3>
+            <p>현장 카드를 누르면 상세 페이지로 들어갑니다. 각 공정의 체크박스를 누르면 <strong>진행률 그래프(%)</strong>가 자동으로 올라갑니다.</p>
+          </div>
+          <div class="step-visual">
+            <div class="step-mockup">
+              <div class="mockup-header"></div>
+              <div class="mockup-content">
+                <div class="mockup-progress">
+                  <div class="mockup-progress-bar">
+                    <div class="mockup-progress-fill"></div>
+                  </div>
+                  <div class="mockup-checklist">
+                    <div class="mockup-check done"></div>
+                    <div class="mockup-check done"></div>
+                    <div class="mockup-check"></div>
+                    <div class="mockup-check"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> <!-- End tab-workhead -->
+
+      <div class="steps-container tab-content" id="tab-workgood">
+        <div class="step-card">
+          <div class="step-number">01</div>
+          <div class="step-content">
+            <h3>수입 및 지출 등록</h3>
+            <p>매일 발생하는 <strong>현장별 수입과 지출</strong>을 간편하게 입력하세요. 여러 현장의 금액이 자동으로 취합되어 월별 통계로 보여집니다.</p>
+          </div>
+          <div class="step-visual">
+            <div class="step-mockup">
+              <div class="mockup-header"></div>
+              <div class="mockup-content">
+                <div class="mockup-progress" style="padding-top:20px;">
+                  <div class="mockup-progress-bar"><div class="mockup-progress-fill" style="width:80%; background:var(--green)"></div></div>
+                  <div class="mockup-progress-bar"><div class="mockup-progress-fill" style="width:40%; background:var(--purple)"></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-connector">
+          <div class="connector-line"></div>
+          <div class="connector-dot"></div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">02</div>
+          <div class="step-content">
+            <h3>미수금 관리 보드</h3>
+            <p>언제까지 얼마를 받아야 하는지 <strong>미수금 대시보드</strong>에서 한눈에 확인하세요. 원클릭으로 거래처에 입금 요청 알림을 보낼 수도 있습니다.</p>
+          </div>
+          <div class="step-visual">
+            <div class="step-mockup">
+              <div class="mockup-header"></div>
+              <div class="mockup-content">
+                <div class="mockup-checklist">
+                  <div class="mockup-check"></div>
+                  <div class="mockup-check done" style="background:rgba(255,107,53,0.15)"></div>
+                  <div class="mockup-check"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-connector">
+          <div class="connector-line"></div>
+          <div class="connector-dot"></div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">03</div>
+          <div class="step-content">
+            <h3>3.3% 세금 자동 계산</h3>
+            <p>입력된 수입을 바탕으로 프리랜서 <strong>3.3% 세금이 자동 계산</strong>되며, 종소세 신고용 엑셀 리포트를 바로 다운로드할 수 있습니다.</p>
+          </div>
+          <div class="step-visual">
+            <div class="step-mockup">
+              <div class="mockup-header"></div>
+              <div class="mockup-content">
+                <div class="mockup-btn" style="background:var(--purple); border-radius:8px"></div>
+                <div style="height:4px;width:60%;background:rgba(255,255,255,0.2);margin:10px auto;border-radius:2px"></div>
+                <div style="height:4px;width:40%;background:rgba(255,255,255,0.1);margin:4px auto;border-radius:2px"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> <!-- End tab-workgood -->
+
+    </div>
+  </section>
+
+  <!-- ============ PRICING SECTION ============ -->
+  <section id="pricing" class="pricing-section">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <div class="section-badge">PRICING</div>
+        <h2 class="section-title">합리적인 <span class="gradient-text">요금제</span></h2>
+        <p class="section-subtitle">무료로 시작하고, 필요할 때 업그레이드하세요</p>
+        
+        <!-- Tab Toggle -->
+        <div class="howto-tabs">
+          <button class="howto-tab-btn active" data-tab="pricing-workhead">일머리 요금제</button>
+          <button class="howto-tab-btn" data-tab="pricing-workgood">일잘러 요금제</button>
+        </div>
+      </div>
+
+      <div class="pricing-grid tab-content active" id="pricing-workhead" data-animate>
+        <!-- FREE -->
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <div class="pricing-plan-icon">🟢</div>
+            <div class="pricing-plan-name">무료</div>
+            <div class="pricing-plan-desc">일정만 깔끔하게</div>
+          </div>
+          <div class="pricing-price">
+            <span class="pricing-amount">₩0</span>
+          </div>
+          <div class="pricing-limit-badge">현장 1개</div>
+          <ul class="pricing-features">
+            <li class="included">현장 등록 <strong>1개</strong></li>
+            <li class="included">캘린더 일정 관리</li>
+            <li class="included">거래처 · 업체 관리</li>
+            <li class="included">견적 / 계약금 입력</li>
+            <li class="included">공정 진행률 체크</li>
+            <li class="excluded">커스텀 공정 템플릿</li>
+            <li class="excluded">일일 다이어리</li>
+            <li class="excluded">AI 일정표 캡처</li>
+          </ul>
+          <a href="https://apps.apple.com/us/app/일머리-인테리어-공정-관리-앱/id6760900594" class="pricing-btn pricing-btn--outline" target="_blank" rel="noopener">무료로 시작</a>
+        </div>
+
+        <!-- STANDARD -->
+        <div class="pricing-card pricing-card--popular">
+          <div class="pricing-popular-badge">🏆 BEST</div>
+          <div class="pricing-header">
+            <div class="pricing-plan-icon">🔵</div>
+            <div class="pricing-plan-name">스탠다드</div>
+            <div class="pricing-plan-desc">일정 + 기록 한 번에</div>
+          </div>
+          <div class="pricing-price">
+            <span class="pricing-amount">₩4,400</span>
+            <span class="pricing-period">/월</span>
+          </div>
+          <div class="pricing-limit-badge pricing-limit-badge--blue">현장 최대 3개</div>
+          <ul class="pricing-features">
+            <li class="included">무료 플랜 전체 포함</li>
+            <li class="included star">현장 등록 <strong>최대 3개</strong></li>
+            <li class="included star">나만의 커스텀 공정 템플릿</li>
+            <li class="included star">일일 다이어리 기록</li>
+            <li class="included star">AI 일정표 캡처 · <strong>월 3회</strong></li>
+          </ul>
+          <a href="https://apps.apple.com/us/app/일머리-인테리어-공정-관리-앱/id6760900594" class="pricing-btn pricing-btn--primary" target="_blank" rel="noopener">스탠다드 시작</a>
+        </div>
+
+        <!-- PREMIUM -->
+        <div class="pricing-card pricing-card--premium">
+          <div class="pricing-header">
+            <div class="pricing-plan-icon">🟣</div>
+            <div class="pricing-plan-name">프리미엄</div>
+            <div class="pricing-plan-desc">현장 무제한 · 모든 기능</div>
+          </div>
+          <div class="pricing-price">
+            <span class="pricing-amount">₩9,900</span>
+            <span class="pricing-period">/월</span>
+          </div>
+          <div class="pricing-limit-badge pricing-limit-badge--purple">현장 무제한</div>
+          <ul class="pricing-features">
+            <li class="included">스탠다드 전체 포함</li>
+            <li class="included star">현장 등록 <strong>무제한</strong></li>
+            <li class="included star">내 비즈니스 팩 (명함 · 서류 공유)</li>
+            <li class="included star">고객용 현장 스케줄 공유</li>
+            <li class="included star">통합 정산 대시보드</li>
+            <li class="included star">일용근로 계산기</li>
+            <li class="included star">AI 일정표 캡처 · <strong>무제한</strong></li>
+          </ul>
+          <a href="https://apps.apple.com/us/app/일머리-인테리어-공정-관리-앱/id6760900594" class="pricing-btn pricing-btn--gradient" target="_blank" rel="noopener">프리미엄 시작</a>
+        </div>
+      </div> <!-- End pricing-workhead -->
+
+      <!-- WORKGOOD PRICING -->
+      <div class="pricing-grid tab-content" id="pricing-workgood">
+        <!-- FREE -->
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <div class="pricing-plan-icon">🟢</div>
+            <div class="pricing-plan-name">무료</div>
+            <div class="pricing-plan-desc">수입 관리의 시작</div>
+          </div>
+          <div class="pricing-price">
+            <span class="pricing-amount">₩0</span>
+          </div>
+          <div class="pricing-limit-badge">현장 최대 10개</div>
+          <ul class="pricing-features">
+            <li class="included">현장 등록 <strong>최대 10개</strong></li>
+            <li class="included">기본 수입 대시보드</li>
+            <li class="included">거래처 정보 관리</li>
+            <li class="included">결제 상태 필터 · 검색</li>
+            <li class="excluded">월별 수입 통계 리포트</li>
+            <li class="excluded">거래처별 매출 분석</li>
+            <li class="excluded">세금 자동 계산</li>
+            <li class="excluded">미수금 알림 발송</li>
+          </ul>
+          <a href="https://apps.apple.com/us/app/일잘러-공사-일정-관리-앱-매니저/id6761646076" class="pricing-btn pricing-btn--outline" target="_blank" rel="noopener">무료로 시작</a>
+        </div>
+
+        <!-- STANDARD -->
+        <div class="pricing-card pricing-card--popular">
+          <div class="pricing-popular-badge">🏆 BEST</div>
+          <div class="pricing-header">
+            <div class="pricing-plan-icon">🔵</div>
+            <div class="pricing-plan-name">스탠다드</div>
+            <div class="pricing-plan-desc">돈 흐름을 한눈에</div>
+          </div>
+          <div class="pricing-price">
+            <span class="pricing-amount">₩4,400</span>
+            <span class="pricing-period">/월</span>
+          </div>
+          <div class="pricing-limit-badge pricing-limit-badge--blue">현장 최대 20개</div>
+          <ul class="pricing-features">
+            <li class="included">무료 플랜 전체 포함</li>
+            <li class="included star">현장 등록 <strong>최대 20개</strong></li>
+            <li class="included star">일일 업무 다이어리 기록</li>
+            <li class="included star">월별 수입 통계 리포트</li>
+            <li class="included star">거래처별 매출 분석</li>
+            <li class="excluded">미수금 관리 대시보드</li>
+            <li class="excluded">세금 자동 계산 · 엑셀 리포트</li>
+            <li class="excluded">자동 알림 발송</li>
+          </ul>
+          <a href="https://apps.apple.com/us/app/일잘러-공사-일정-관리-앱-매니저/id6761646076" class="pricing-btn pricing-btn--primary" target="_blank" rel="noopener">스탠다드 시작</a>
+        </div>
+
+        <!-- PREMIUM -->
+        <div class="pricing-card pricing-card--premium">
+          <div class="pricing-header">
+            <div class="pricing-plan-icon">🟣</div>
+            <div class="pricing-plan-name">프리미엄</div>
+            <div class="pricing-plan-desc">세금 걱정까지 끝</div>
+          </div>
+          <div class="pricing-price">
+            <span class="pricing-amount">₩9,900</span>
+            <span class="pricing-period">/월</span>
+          </div>
+          <div class="pricing-limit-badge pricing-limit-badge--purple">현장 무제한</div>
+          <ul class="pricing-features">
+            <li class="included">스탠다드 전체 포함</li>
+            <li class="included star">현장 등록 <strong>무제한</strong></li>
+            <li class="included star">미수금 관리 대시보드</li>
+            <li class="included star">3.3% 원천징수 자동 계산</li>
+            <li class="included star">종합소득세 대비 엑셀 리포트</li>
+            <li class="included star">1년 매출 정산 리포트</li>
+            <li class="included star">내일 일정 자동 알림 발송</li>
+            <li class="included star">미수금 입금 요청 알림</li>
+          </ul>
+          <a href="https://apps.apple.com/us/app/일잘러-공사-일정-관리-앱-매니저/id6761646076" class="pricing-btn pricing-btn--gradient" target="_blank" rel="noopener">프리미엄 시작</a>
+        </div>
+      </div> <!-- End pricing-workgood -->
+
+    </div>
+  </section>
+
+  <!-- ============ SNS SECTION ============ -->
+  <section id="sns" class="sns-section">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <div class="section-badge">FOLLOW US</div>
+        <h2 class="section-title">더 <span class="gradient-text">알아보기</span></h2>
+        <p class="section-subtitle">SNS에서 일머리 & 일잘러의 최신 소식을 만나보세요</p>
+      </div>
+
+      <div class="sns-grid" data-animate>
+        <a href="#" class="sns-card sns-card--instagram" target="_blank" rel="noopener">
+          <div class="sns-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+            </svg>
+          </div>
+          <div class="sns-info">
+            <div class="sns-name">Instagram</div>
+            <div class="sns-handle">@workinsight_kr</div>
+          </div>
+          <div class="sns-action">팔로우</div>
+        </a>
+
+        <a href="#" class="sns-card sns-card--youtube" target="_blank" rel="noopener">
+          <div class="sns-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"></path>
+              <path d="m10 15 5-3-5-3z"></path>
+            </svg>
+          </div>
+          <div class="sns-info">
+            <div class="sns-name">YouTube</div>
+            <div class="sns-handle">일하는 사람들 채널</div>
+          </div>
+          <div class="sns-action">구독</div>
+        </a>
+
+        <a href="https://www.workhead.co.kr" class="sns-card sns-card--web" target="_blank" rel="noopener">
+          <div class="sns-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+              <path d="M2 12h20"></path>
+            </svg>
+          </div>
+          <div class="sns-info">
+            <div class="sns-name">일머리 웹</div>
+            <div class="sns-handle">workhead.co.kr</div>
+          </div>
+          <div class="sns-action">방문</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA SECTION ============ -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content" data-animate>
+        <h2 class="cta-title">지금 바로 <span class="gradient-text">시작</span>하세요</h2>
+        <p class="cta-desc">현장 관리의 새로운 기준, 무료로 체험해보세요.</p>
+        <div class="cta-buttons">
+          <a href="https://apps.apple.com/us/app/일머리-인테리어-공정-관리-앱/id6760900594" class="cta-btn cta-btn--primary" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"></path></svg>
+            일머리 App Store
+          </a>
+          <a href="https://apps.apple.com/us/app/일잘러-공사-일정-관리-앱-매니저/id6761646076" class="cta-btn cta-btn--primary" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"></path></svg>
+            일잘러 App Store
+          </a>
+        </div>
+        <p class="cta-note">* Google Play (안드로이드) 버전은 현재 심사 중입니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="/assets/images/logo_working_people.png" alt="일하는 사람들" class="footer-logo-img">
+            <span>일하는 사람들</span>
+          </div>
+          <p class="footer-desc">
+            인테리어·건축 현장 관리의 새로운 기준.<br>
+            일머리와 일잘러로 스마트하게. — 일하는 사람들
+          </p>
+        </div>
+        <div class="footer-links-group">
+          <h4>앱</h4>
+          <a href="https://www.workhead.co.kr" target="_blank" rel="noopener">일머리 (Workhead)</a>
+          <a href="#">일잘러 (Workgood)</a>
+        </div>
+        <div class="footer-links-group">
+          <h4>정보</h4>
+          <a href="https://www.workhead.co.kr/privacy" target="_blank" rel="noopener">개인정보처리방침</a>
+          <a href="https://www.workhead.co.kr/terms" target="_blank" rel="noopener">이용약관</a>
+        </div>
+        <div class="footer-links-group">
+          <h4>SNS</h4>
+          <a href="#">Instagram</a>
+          <a href="#">YouTube</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 일하는 사람들. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/main.js"></script>
+</body>
+</html>
