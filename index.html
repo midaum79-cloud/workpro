@@ -16,12 +16,13 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
   <div class="scroll-progress" id="scrollProgress"></div>
+
   <!-- ============ NAVIGATION ============ -->
   <nav id="navbar" class="navbar">
     <div class="nav-container">
@@ -35,7 +36,7 @@
         <a href="#features" class="nav-link">주요 기능</a>
         <a href="#pricing" class="nav-link">요금제</a>
         <a href="#howto" class="nav-link">사용법</a>
-        <a href="#sns" class="nav-link">SNS</a>
+        <a href="https://apps.apple.com/us/app/일머리-인테리어-공정-관리-앱/id6760900594" class="nav-cta" target="_blank" rel="noopener">다운로드</a>
       </div>
       <button class="nav-toggle" id="navToggle" aria-label="메뉴 열기">
         <span></span><span></span><span></span>
@@ -45,70 +46,46 @@
 
   <!-- ============ HERO SECTION ============ -->
   <section id="hero" class="hero">
-    <div class="hero-bg-effects">
-      <div class="hero-orb hero-orb-1"></div>
-      <div class="hero-orb hero-orb-2"></div>
-      <div class="hero-orb hero-orb-3"></div>
-      <div class="hero-grid"></div>
-    </div>
+    <div class="hero-bg-image" id="heroBg"></div>
+    <div class="hero-overlay"></div>
     <div class="hero-content">
-      <div class="hero-badge" data-animate>
-        <span class="hero-badge-dot"></span>
-        <img src="/assets/images/logo_working_people.png" alt="" class="hero-badge-logo">
-        현장 관리의 새로운 기준
+      <div class="hero-eyebrow" data-animate>
+        <span class="hero-eyebrow-dot"></span>
+        App Store 출시 완료
       </div>
       <h1 class="hero-title" data-animate>
-        일의 <span class="gradient-text">시작</span>부터<br>
-        <span class="gradient-text">완성</span>까지.
+        일의 <span class="accent">시작</span>부터<br>
+        <span class="accent">완성</span>까지.
       </h1>
-      <p class="hero-description" data-animate>
+      <p class="hero-subtitle" data-animate>
         인테리어·건축 현장을 가장 스마트하게 관리하는 방법.<br>
-        <strong>일머리</strong>와 <strong>일잘러</strong>, 두 가지 앱으로 현장의 모든 것을 한 손에.
+        <strong>일머리</strong>와 <strong>일잘러</strong>, 두 가지 앱으로 한 손에.
       </p>
-      <div class="hero-apps" data-animate>
-        <a href="#workhead" class="hero-app-card">
-          <img src="/assets/images/logo-workhead.png" alt="일머리 로고" class="hero-app-logo">
-          <div class="hero-app-info">
-            <div class="hero-app-name">일머리</div>
-            <div class="hero-app-tag">Workhead</div>
+      <div class="hero-apps-row" data-animate>
+        <a href="#workhead" class="hero-app-pill">
+          <img src="/assets/images/logo-workhead.png" alt="일머리" class="hero-app-pill-logo">
+          <div class="hero-app-pill-info">
+            <div class="hero-app-pill-name">일머리</div>
+            <div class="hero-app-pill-sub">공정 · 일정 · 업체 관리</div>
           </div>
-          <div class="hero-app-arrow">→</div>
         </a>
-        <a href="#workgood" class="hero-app-card">
-          <img src="/assets/images/logo-workgood.png" alt="일잘러 로고" class="hero-app-logo">
-          <div class="hero-app-info">
-            <div class="hero-app-name">일잘러</div>
-            <div class="hero-app-tag">Workgood</div>
+        <a href="#workgood" class="hero-app-pill">
+          <img src="/assets/images/logo-workgood.png" alt="일잘러" class="hero-app-pill-logo">
+          <div class="hero-app-pill-info">
+            <div class="hero-app-pill-name">일잘러</div>
+            <div class="hero-app-pill-sub">수입 · 미수금 · 세금 관리</div>
           </div>
-          <div class="hero-app-arrow">→</div>
         </a>
-      </div>
-      <div class="hero-stats" data-animate>
-        <div class="hero-stat">
-          <div class="hero-stat-number" data-count="2">2</div>
-          <div class="hero-stat-label">개의 앱</div>
-        </div>
-        <div class="hero-stat-divider"></div>
-        <div class="hero-stat">
-          <div class="hero-stat-number">출시 완료</div>
-          <div class="hero-stat-label">App Store</div>
-        </div>
-        <div class="hero-stat-divider"></div>
-        <div class="hero-stat">
-          <div class="hero-stat-number">₩0</div>
-          <div class="hero-stat-label">무료 시작</div>
-        </div>
       </div>
     </div>
-    <div class="hero-scroll-indicator">
-      <div class="scroll-mouse">
-        <div class="scroll-wheel"></div>
-      </div>
-      <span>아래로 스크롤</span>
+    <div class="hero-scroll-hint">
+      <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+      <span>scroll</span>
     </div>
   </section>
 
   <!-- ============ WORKHEAD SECTION ============ -->
+
   <section id="workhead" class="app-section app-section--workhead">
     <div class="container">
       <div class="app-header" data-animate>
@@ -216,7 +193,7 @@
   <section id="features" class="common-features">
     <div class="container">
       <div class="section-header" data-animate>
-        <div class="section-badge">CORE FEATURES</div>
+        <div class="section-eyebrow">CORE FEATURES</div>
         <h2 class="section-title">두 앱의 <span class="gradient-text">공통 강점</span></h2>
         <p class="section-subtitle">일머리와 일잘러, 모두에서 누릴 수 있는 핵심 기능</p>
       </div>
@@ -258,7 +235,7 @@
   <section id="howto" class="howto-section">
     <div class="container">
       <div class="section-header" data-animate>
-        <div class="section-badge">HOW TO USE</div>
+        <div class="section-eyebrow">HOW TO USE</div>
         <h2 class="section-title">이렇게 <span class="gradient-text">사용</span>하세요</h2>
         <p class="section-subtitle">일머리와 일잘러, 각각의 앱에 맞춰 스마트하게 활용해보세요</p>
         
@@ -431,7 +408,7 @@
   <section id="pricing" class="pricing-section">
     <div class="container">
       <div class="section-header" data-animate>
-        <div class="section-badge">PRICING</div>
+        <div class="section-eyebrow">PRICING</div>
         <h2 class="section-title">합리적인 <span class="gradient-text">요금제</span></h2>
         <p class="section-subtitle">무료로 시작하고, 필요할 때 업그레이드하세요</p>
         
@@ -600,7 +577,7 @@
   <section id="sns" class="sns-section">
     <div class="container">
       <div class="section-header" data-animate>
-        <div class="section-badge">FOLLOW US</div>
+        <div class="section-eyebrow">FOLLOW US</div>
         <h2 class="section-title">더 <span class="gradient-text">알아보기</span></h2>
         <p class="section-subtitle">SNS에서 일머리 & 일잘러의 최신 소식을 만나보세요</p>
       </div>
