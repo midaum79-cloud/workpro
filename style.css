@@ -756,6 +756,58 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   line-height: 1.65;
 }
 
+/* Sub-features */
+.sub-features-wrap {
+  margin-top: var(--space-2xl);
+  padding: var(--space-xl);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-xl);
+  text-align: center;
+}
+
+.sub-features-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: var(--space-lg);
+  color: var(--text-primary);
+}
+
+.sub-features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.sub-feature-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--bg-white);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-lg);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.sub-icon {
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .sub-features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .sub-features-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ================================================
    COMMON FEATURES
    ================================================ */
