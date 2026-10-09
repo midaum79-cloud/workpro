@@ -1,179 +1,147 @@
 /* ================================================
-   WORKSITE — Main JavaScript
-   Scroll animations, navigation, interactions
+   WORKPRO — 랜딩 페이지 스크립트
    ================================================ */
 
-// ---- Scroll-based Animations (Intersection Observer) ----
-const observerOptions = {
-  threshold: 0.1,
-  rootMargin: '0px 0px -50px 0px'
+const STORES = {
+  iljaleo: {
+    ios: 'https://apps.apple.com/kr/app/id6761646076',
+    android: 'https://play.google.com/store/apps/details?id=com.workgood.mobile',
+  },
+  ilmeori: {
+    ios: 'https://apps.apple.com/kr/app/id6760900594',
+    android: 'https://play.google.com/store/apps/details?id=com.ilmeori.app',
+  },
 };
 
-const animateObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      // Don't unobserve — allows re-animation if needed
-    }
-  });
-}, observerOptions);
+const os = document.documentElement.dataset.os || ''; // <head>에서 감지: 'ios' | 'android' | ''
 
-document.querySelectorAll('[data-animate]').forEach((el) => {
-  animateObserver.observe(el);
-});
-
-// ---- Scroll Progress Bar ----
-const scrollProgress = document.getElementById('scrollProgress');
-
-// ---- Navbar scroll effect ----
-const navbar = document.getElementById('navbar');
-let lastScroll = 0;
-
-function handleNavScroll() {
-  const scrollY = window.scrollY;
-  
-  if (scrollProgress) {
-    const documentHeight = Math.max(
-      document.documentElement.scrollHeight, 
-      document.body.scrollHeight
-    );
-    const windowHeight = window.innerHeight;
-    const scrollMax = documentHeight - windowHeight;
-    const scrolled = Math.max(0, Math.min(100, (scrollY / scrollMax) * 100));
-    scrollProgress.style.width = scrolled + '%';
-  }
-
-  if (scrollY > 50) {
-    navbar.classList.add('scrolled');
-  } else {
-    navbar.classList.remove('scrolled');
-  }
-  
-  lastScroll = scrollY;
+// ---- 광고 성과 측정: GA4 / Meta 픽셀이 설치돼 있으면 이벤트 전송 ----
+function track(name, params = {}) {
+  try {
+    if (typeof window.gtag === 'function') window.gtag('event', name, params);
+    if (typeof window.fbq === 'function') window.fbq('trackCustom', name, params);
+  } catch (_) { /* 측정 실패가 페이지 동작을 막지 않도록 */ }
 }
 
-window.addEventListener('scroll', handleNavScroll, { passive: true });
+// ---- 스토어 링크: 광고 UTM을 Google Play로 전달 (Play Console 유입 분석용) ----
+const utm = new URLSearchParams(
+  [...new URLSearchParams(location.search)].filter(([k]) => k.startsWith('utm_'))
+).toString();
 
-// ---- Mobile navigation toggle ----
-const navToggle = document.getElementById('navToggle');
-const navLinks = document.getElementById('navLinks');
-
-navToggle.addEventListener('click', () => {
-  navToggle.classList.toggle('active');
-  navLinks.classList.toggle('open');
-  document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
-});
-
-// Close nav on link click (mobile)
-navLinks.querySelectorAll('.nav-link').forEach((link) => {
-  link.addEventListener('click', () => {
-    navToggle.classList.remove('active');
-    navLinks.classList.remove('open');
-    document.body.style.overflow = '';
-  });
-});
-
-// ---- Smooth scroll for anchor links ----
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener('click', (e) => {
-    const target = document.querySelector(anchor.getAttribute('href'));
-    if (target) {
-      e.preventDefault();
-      const offset = 80;
-      const top = target.getBoundingClientRect().top + window.scrollY - offset;
-      window.scrollTo({
-        top,
-        behavior: 'smooth'
-      });
-    }
-  });
-});
-
-// ---- Active nav link highlighting ----
-const sections = document.querySelectorAll('section[id]');
-
-function highlightNavLinks() {
-  const scrollY = window.scrollY;
-
-  sections.forEach((section) => {
-    const sectionTop = section.offsetTop - 120;
-    const sectionBottom = sectionTop + section.offsetHeight;
-    const sectionId = section.getAttribute('id');
-    const link = document.querySelector(`.nav-link[href="#${sectionId}"]`);
-    
-    if (link) {
-      if (scrollY >= sectionTop && scrollY < sectionBottom) {
-        link.classList.add('active');
-        link.style.color = 'var(--text-primary)';
-      } else {
-        link.classList.remove('active');
-        link.style.color = '';
-      }
-    }
-  });
+function storeUrl(app, platform) {
+  const url = STORES[app][platform];
+  return platform === 'android' && utm ? `${url}&referrer=${encodeURIComponent(utm)}` : url;
 }
 
-window.addEventListener('scroll', highlightNavLinks, { passive: true });
+document.querySelectorAll('[data-store]').forEach((a) => {
+  const app = a.dataset.store;
+  const platform = a.dataset.os === 'auto' ? (os === 'android' ? 'android' : 'ios') : a.dataset.os;
+  a.href = storeUrl(app, platform);
+  a.addEventListener('click', () => {
+    track('store_click', { app, store: platform, location: a.dataset.trackLoc || '' });
+  });
+});
 
-// ---- Stagger animation for grid children ----
-const staggerObserver = new IntersectionObserver((entries) => {
+document.querySelectorAll('[data-track]').forEach((a) => {
+  a.addEventListener('click', () => track(a.dataset.track, { location: a.dataset.trackLoc || '' }));
+});
+
+// ---- 네비게이션 그림자 ----
+const nav = document.getElementById('nav');
+const onScroll = () => nav.classList.toggle('is-scrolled', window.scrollY > 8);
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+// ---- 스크롤 등장 효과 ----
+const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      const children = entry.target.children;
-      Array.from(children).forEach((child, i) => {
-        child.style.opacity = '0';
-        child.style.transform = 'translateY(20px)';
-        child.style.transition = `opacity 0.5s ease ${i * 0.1}s, transform 0.5s ease ${i * 0.1}s`;
-        
-        requestAnimationFrame(() => {
-          child.style.opacity = '1';
-          child.style.transform = 'translateY(0)';
-        });
-      });
-      staggerObserver.unobserve(entry.target);
+      entry.target.classList.add('is-in');
+      revealObserver.unobserve(entry.target);
     }
   });
-}, { threshold: 0.1 });
+}, { rootMargin: '0px 0px -8% 0px' });
+document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
 
-document.querySelectorAll('.features-grid, .common-grid, .pricing-grid, .sns-grid').forEach((grid) => {
-  staggerObserver.observe(grid);
+// ---- 데모 영상: 화면에 보일 때만 로드·재생 (데이터 절약) ----
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const videoObserver = new IntersectionObserver((entries) => {
+  entries.forEach(({ target: video, isIntersecting }) => {
+    if (isIntersecting) {
+      if (!video.src) video.src = video.dataset.src;
+      if (!reduceMotion) video.play().catch(() => {});
+    } else {
+      video.pause();
+    }
+  });
+}, { threshold: 0.25 });
+document.querySelectorAll('video[data-src]').forEach((video) => {
+  if (reduceMotion) video.controls = true;
+  videoObserver.observe(video);
 });
 
-// ---- Parallax on hero orbs ----
-window.addEventListener('mousemove', (e) => {
-  const x = (e.clientX / window.innerWidth - 0.5) * 2;
-  const y = (e.clientY / window.innerHeight - 0.5) * 2;
-  
-  const orbs = document.querySelectorAll('.hero-orb');
-  orbs.forEach((orb, i) => {
-    const speed = (i + 1) * 10;
-    orb.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+// ---- 화면 미리보기 캐러셀 (좌우 버튼) ----
+document.querySelectorAll('.shots-wrap').forEach((wrap) => {
+  const track = wrap.querySelector('.shots');
+  const [prev, next] = wrap.querySelectorAll('.shots-btn');
+  const step = () => {
+    const img = track.querySelector('img');
+    return img ? img.getBoundingClientRect().width + 12 : 240;
+  };
+  const update = () => {
+    prev.disabled = track.scrollLeft <= 2;
+    next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
+  };
+  prev.addEventListener('click', () => track.scrollBy({ left: -step() * 2, behavior: 'smooth' }));
+  next.addEventListener('click', () => track.scrollBy({ left: step() * 2, behavior: 'smooth' }));
+  track.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+});
+
+// ---- 요금제 탭 ----
+const tabs = [...document.querySelectorAll('.tab')];
+function selectTab(tab) {
+  tabs.forEach((t) => {
+    const active = t === tab;
+    t.classList.toggle('is-active', active);
+    t.setAttribute('aria-selected', String(active));
+    const panel = document.getElementById(t.getAttribute('aria-controls'));
+    panel.hidden = !active;
+    if (active) panel.classList.add('is-in');
+  });
+}
+tabs.forEach((tab, i) => {
+  tab.addEventListener('click', () => selectTab(tab));
+  tab.addEventListener('keydown', (e) => {
+    if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+    const nextTab = tabs[(i + (e.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length];
+    nextTab.focus();
+    selectTab(nextTab);
+  });
+});
+// 일머리 섹션을 보고 내려온 사람에게는 일머리 요금제를 먼저 보여주기
+document.querySelectorAll('a[href="#pricing"]').forEach((a) => {
+  a.addEventListener('click', () => {
+    const ilmeori = document.getElementById('ilmeori');
+    if (ilmeori.getBoundingClientRect().top < 0) selectTab(document.getElementById('tab-ilmeori'));
   });
 });
 
-// ---- Generic Tabs Logic ----
-document.querySelectorAll('.howto-tabs').forEach(tabGroup => {
-  const btns = tabGroup.querySelectorAll('.howto-tab-btn');
-  const section = tabGroup.closest('section');
-  const contents = section.querySelectorAll('.tab-content');
-  
-  btns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      btns.forEach(b => b.classList.remove('active'));
-      contents.forEach(c => c.classList.remove('active'));
-      
-      btn.classList.add('active');
-      const targetId = btn.getAttribute('data-tab');
-      const targetContent = document.getElementById(targetId);
-      if (targetContent) {
-        targetContent.classList.add('active');
-      }
-    });
-  });
-});
+// ---- 모바일 하단 다운로드 바: 첫 화면의 앱 선택을 지나면 표시, 마지막 CTA에서는 숨김 ----
+const dock = document.getElementById('dock');
+const picker = document.querySelector('.picker');
+const finalSection = document.querySelector('.final');
+let pickerPassed = false;
+let finalVisible = false;
+const updateDock = () => dock.classList.toggle('is-shown', pickerPassed && !finalVisible);
 
-// ---- Initialize ----
-handleNavScroll();
-highlightNavLinks();
+new IntersectionObserver(([entry]) => {
+  pickerPassed = !entry.isIntersecting && entry.boundingClientRect.top < 0;
+  updateDock();
+}).observe(picker);
 
-console.log('🚀 Worksite loaded successfully');
+new IntersectionObserver(([entry]) => {
+  finalVisible = entry.isIntersecting;
+  updateDock();
+}).observe(finalSection);
